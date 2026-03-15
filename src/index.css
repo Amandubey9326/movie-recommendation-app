@@ -1,0 +1,260 @@
+@import "tailwindcss";
+@import "./styles/globals.css";
+
+/* Custom theme configuration */
+@theme {
+  /* Dark mode colors */
+  --color-dark-bg: #0a0a0a;
+  --color-dark-surface: #141414;
+  --color-dark-card: #1a1a1a;
+  --color-dark-border: #2a2a2a;
+  
+  /* Light mode colors */
+  --color-light-bg: #f5f5f5;
+  --color-light-surface: #ffffff;
+  --color-light-card: #ffffff;
+  --color-light-border: #e5e5e5;
+  
+  /* Accent colors */
+  --color-accent-primary: #e50914;
+  --color-accent-secondary: #b81d24;
+  --color-accent-hover: #f40612;
+  
+  /* Font family */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  /* Animations */
+  --animate-fade-in: fade-in 0.3s ease-in-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+  --animate-scale-in: scale-in 0.3s ease-out;
+  
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes slide-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes scale-in {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+}
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-bg text-white font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Light mode styles */
+  html.light body {
+    background-color: #f5f5f5 !important;
+    color: #111827 !important;
+  }
+  
+  html.light .bg-dark-bg {
+    background-color: #f5f5f5 !important;
+  }
+  
+  html.light .bg-dark-surface {
+    background-color: #ffffff !important;
+  }
+  
+  html.light .bg-dark-surface\/80 {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  html.light .bg-dark-surface\/95 {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+  }
+  
+  html.light .bg-dark-card {
+    background-color: #ffffff !important;
+  }
+  
+  html.light .border-dark-border {
+    border-color: #e5e5e5 !important;
+  }
+  
+  html.light .border-dark-border\/50 {
+    border-color: rgba(229, 231, 235, 0.5) !important;
+  }
+  
+  html.light .text-white {
+    color: #111827 !important;
+  }
+  
+  html.light .text-gray-100 {
+    color: #1f2937 !important;
+  }
+  
+  html.light .text-gray-200 {
+    color: #374151 !important;
+  }
+  
+  html.light .text-gray-300 {
+    color: #4b5563 !important;
+  }
+  
+  html.light .text-gray-400 {
+    color: #6b7280 !important;
+  }
+  
+  html.light .text-gray-500 {
+    color: #9ca3af !important;
+  }
+  
+  /* Glass effects for light mode */
+  html.light .glass-card {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  html.light .glass {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  html.light .glass-dark {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Background opacity variants */
+  html.light .bg-white\/5 {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+  }
+  
+  html.light .bg-white\/10 {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  html.light .bg-white\/20 {
+    background-color: rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  html.light .bg-black\/30 {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  html.light .bg-black\/50 {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  html.light .bg-black\/60 {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+  }
+  
+  /* Border opacity variants */
+  html.light .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  html.light .border-white\/20 {
+    border-color: rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  /* Hover states */
+  html.light .hover\:bg-white\/10:hover {
+    background-color: rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  html.light .hover\:bg-white\/20:hover {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+  }
+  
+  html.light .hover\:text-white:hover {
+    color: #111827 !important;
+  }
+  
+  /* Shadows for light mode */
+  html.light .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  html.light .shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  }
+  
+  /* Input fields */
+  html.light input,
+  html.light textarea,
+  html.light select {
+    background-color: #ffffff !important;
+    border-color: #e5e5e5 !important;
+    color: #111827 !important;
+  }
+  
+  html.light input::placeholder,
+  html.light textarea::placeholder {
+    color: #9ca3af !important;
+  }
+  
+  /* Scrollbar for light mode */
+  html.light ::-webkit-scrollbar-track {
+    background: #f5f5f5 !important;
+  }
+  
+  html.light ::-webkit-scrollbar-thumb {
+    background: #d1d5db !important;
+  }
+}
+
+/* Glassmorphism utilities */
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-md border border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent;
+  }
+  
+  .transition-theme {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  /* Smooth shimmer effect for skeleton loading */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  /* Light mode shimmer */
+  html.light .shimmer {
+    background: linear-gradient(90deg, #e5e5e5 0%, #f5f5f5 50%, #e5e5e5 100%) !important;
+    background-size: 200% 100%;
+  }
+}

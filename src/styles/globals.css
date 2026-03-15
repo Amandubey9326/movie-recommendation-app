@@ -1,0 +1,129 @@
+/* Additional global styles and utilities */
+
+/* 3D Card Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Movie Card 3D Effects */
+.movie-card-3d {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transform-style: preserve-3d;
+}
+
+.movie-card-3d:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Gradient Overlays */
+.gradient-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.gradient-overlay-hero {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    transparent 100%
+  );
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-surface, #141414);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-border, #2a2a2a);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-primary, #e50914);
+}
+
+/* Hide scrollbar for carousel */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Loading Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px var(--color-accent-primary, #e50914);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 40px var(--color-accent-primary, #e50914);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Stagger Animation Delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Focus Styles for Accessibility */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-accent-primary, #e50914);
+  outline-offset: 2px;
+}
+
+/* Button Base Styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent-primary, #e50914), var(--color-accent-secondary, #b81d24));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Glass Button */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}

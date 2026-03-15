@@ -15,6 +15,7 @@ import { Footer } from '@components/common/Footer';
 import { LoadingScreen } from '@components/common/LoadingScreen';
 import { ErrorBoundary } from '@components/common/ErrorBoundary';
 import { ProtectedRoute } from '@components/common/ProtectedRoute';
+import { InstallPrompt } from '@components/common/InstallPrompt';
 
 // Lazy load pages for code splitting
 const HomePage = lazy(() => import('@pages/HomePage'));
@@ -68,6 +69,7 @@ function App() {
           <BrowserRouter>
             <ErrorBoundary>
               <LoadingScreen isLoading={initialLoading} />
+              <InstallPrompt />
               <AppLayout>
                 <Suspense fallback={<PageLoader />}>
                   <Routes>

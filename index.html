@@ -3,13 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     
     <!-- SEO Meta Tags -->
     <title>MovieRec - Discover Your Next Favorite Movie</title>
     <meta name="description" content="Discover personalized movie recommendations with AI-powered suggestions. Browse trending movies, search by genre, and build your watchlist." />
     <meta name="keywords" content="movies, recommendations, streaming, watchlist, trending, top rated" />
-    <meta name="author" content="MovieRec" />
+    <meta name="author" content="Aman Dubey" />
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#8b5cf6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="MovieRec" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    
+    <!-- Mobile App Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="MovieRec" />
+    <meta name="format-detection" content="telephone=no" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -25,9 +38,6 @@
     <meta property="twitter:description" content="Discover personalized movie recommendations with AI-powered suggestions." />
     <meta property="twitter:image" content="/og-image.jpg" />
     
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#0a0a0a" />
-    
     <!-- Preconnect to TMDB -->
     <link rel="preconnect" href="https://api.themoviedb.org" />
     <link rel="preconnect" href="https://image.tmdb.org" />
@@ -35,5 +45,20 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Register Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('SW registration failed:', error);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

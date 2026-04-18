@@ -23,6 +23,9 @@ const navLinks: NavLink[] = [
   { to: '/', label: 'Home' },
   { to: '/recommendations', label: 'Recommendations' },
   { to: '/search', label: 'Search' },
+  { to: '/mood', label: 'Mood' },
+  { to: '/chatbot', label: 'AI Chat' },
+  { to: '/quiz', label: 'Quiz' },
   { to: '/dashboard', label: 'Dashboard' },
 ];
 

@@ -29,6 +29,9 @@ const TermsPage = lazy(() => import('@pages/TermsPage'));
 const ContactPage = lazy(() => import('@pages/ContactPage'));
 const LoginPage = lazy(() => import('@pages/LoginPage'));
 const SignupPage = lazy(() => import('@pages/SignupPage'));
+const ChatbotPage = lazy(() => import('@pages/ChatbotPage'));
+const MoodPage = lazy(() => import('@pages/MoodPage'));
+const QuizPage = lazy(() => import('@pages/QuizPage'));
 
 function PageLoader() {
   return (
@@ -87,6 +90,9 @@ function App() {
                     <Route path="/privacy" element={<ProtectedRoute><PrivacyPage /></ProtectedRoute>} />
                     <Route path="/terms" element={<ProtectedRoute><TermsPage /></ProtectedRoute>} />
                     <Route path="/contact" element={<ProtectedRoute><ContactPage /></ProtectedRoute>} />
+                    <Route path="/chatbot" element={<ProtectedRoute><ChatbotPage /></ProtectedRoute>} />
+                    <Route path="/mood" element={<ProtectedRoute><MoodPage /></ProtectedRoute>} />
+                    <Route path="/quiz" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
                   </Routes>
                 </Suspense>
               </AppLayout>
